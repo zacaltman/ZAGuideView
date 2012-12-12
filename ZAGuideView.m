@@ -7,6 +7,7 @@
 //
 
 #import "ZAGuideView.h"
+#import "AsyncImageView.h"
 
 static BOOL contentLoaded = NO;
 
@@ -201,12 +202,12 @@ static BOOL contentLoaded = NO;
     [_pageControl setNumberOfPages:count];
     
     // Now let's iterate through and add the images to the scrollview.
-    for (NSString *urlString in _images) {
-        NSUInteger index = [_images indexOfObject:urlString];
+    for (int index = 0; index < _images.count; index++) {
+        NSString *urlString = [_images objectAtIndex:index];
         CGRect frame = CGRectMake(width * index, 0, width, height);
 
-        UIImageView *imageView = [UIImageView new];
-//        [imageView setURLString:urlString];
+        AsyncImageView *imageView = [AsyncImageView new];
+        [imageView setImageURL:[NSURL URLWithString:urlString]];
         [imageView setContentMode:UIViewContentModeScaleAspectFit]; // We always want the content to show.
         [imageView setFrame:frame];
         
@@ -251,7 +252,7 @@ static NSString *tableCellIdentifier = @"tableCellId";
         _data = @[
         @{ZAGUIDE_TITLE_KEY:@"Title A",ZAGUIDE_ITEMS_KEY:@[
         @{ZAGUIDE_TITLE_KEY:@"Link",ZAGUIDE_CONTENT_KEY:@"http://www.collusionapp.com/",ZAGUIDE_TYPE_KEY:ZAGUIDE_TYPE_LINK},
-        @{ZAGUIDE_TITLE_KEY:@"Images",ZAGUIDE_CONTENT_KEY:@[@"https://collusionapp.com/wp-content/uploads/2012/10/logo.png",@"https://collusionapp.com/wp-content/uploads/2012/10/logo.png"],ZAGUIDE_TYPE_KEY:ZAGUIDE_TYPE_IMAGES},
+        @{ZAGUIDE_TITLE_KEY:@"Images",ZAGUIDE_CONTENT_KEY:@[@"https://collusionapp.com/wp-content/uploads/2012/10/logo.png",@"https://collusionapp.com/wp-content/uploads/2012/10/logo.png",@"https://collusionapp.com/wp-content/uploads/2012/10/logo.png",@"https://collusionapp.com/wp-content/uploads/2012/10/logo.png"],ZAGUIDE_TYPE_KEY:ZAGUIDE_TYPE_IMAGES},
         @{ZAGUIDE_TITLE_KEY:@"Html",ZAGUIDE_CONTENT_KEY:@"Content <strong>C</strong>",ZAGUIDE_TYPE_KEY:ZAGUIDE_TYPE_HTML},
         @{ZAGUIDE_TITLE_KEY:@"Html",ZAGUIDE_CONTENT_KEY:@"Content D",ZAGUIDE_TYPE_KEY:ZAGUIDE_TYPE_HTML}
         ]

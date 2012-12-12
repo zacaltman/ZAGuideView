@@ -1,4 +1,4 @@
-Copyright (c) 2012 Zac Altman
+Copyright (c) 2012 Collusion & Zac Altman
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
@@ -22,5 +22,5 @@ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 
 A different license may apply to other ressources included in this package, 
-including Drew Wilson's Pictos Icons. Please consult their 
-respective headers for the terms of their individual licenses.
+including AsyncImageView. Please consult their respective headers for the 
+terms of their individual licenses.

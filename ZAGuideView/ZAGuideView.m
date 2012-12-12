@@ -11,20 +11,9 @@
 
 static BOOL contentLoaded = NO;
 
-#define ZAGUIDE_DEFAULT_TITLE @"Guide"
-
-#define ZAGUIDE_TITLE_KEY @"title"
-#define ZAGUIDE_ITEMS_KEY @"items"
-#define ZAGUIDE_CONTENT_KEY @"content"
-#define ZAGUIDE_TYPE_KEY @"type"
-
-#define ZAGUIDE_TYPE_IMAGES @"images"
-#define ZAGUIDE_TYPE_HTML @"html"
-#define ZAGUIDE_TYPE_LINK @"link"
-
-@interface ZAGuideTableViewController : UITableViewController {
-    NSArray *_data;
-}
+@interface ZAGuideTableViewController : UITableViewController
+@property (nonatomic,strong) NSArray *data;
+- (void) loadData:(NSArray *)data;
 @end
 
 @interface ZAWebViewController : UIViewController {
@@ -47,17 +36,35 @@ static BOOL contentLoaded = NO;
 
 #pragma mark - External Methods
 
++ (void) showGuideWithData:(NSArray *)data {
+    [self showGuideWithTitle:ZAGUIDE_DEFAULT_TITLE data:data];
+}
+
++ (void) showGuideWithTitle:(NSString *)title data:(NSArray *)data {
+    [self showGuideWithTitle:title data:data URLString:nil];
+}
+
 + (void) showGuideWithURLString:(NSString *)urlString {
     [self showGuideWithTitle:ZAGUIDE_DEFAULT_TITLE URLString:urlString];
 }
 
 + (void) showGuideWithTitle:(NSString *)title URLString:(NSString *)urlString {
-        
+    [self showGuideWithTitle:title data:nil URLString:urlString];
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+#pragma mark - Internal Methods
+
++ (void) showGuideWithTitle:(NSString *)title data:(NSArray *)data URLString:(NSString *)urlString {
+    
     // Get the view to present the Guide from
     UIViewController *rootViewController = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
     
     // Get the guide
-    UINavigationController *navigationController = [self getNavigationControllerWithTitle:title];
+    UINavigationController *navigationController = [self getNavigationControllerWithTitle:title
+                                                                                     data:data
+                                                                                urlString:urlString];
     
     // Present it
     [rootViewController presentViewController:navigationController
@@ -66,16 +73,17 @@ static BOOL contentLoaded = NO;
     
 }
 
-///////////////////////////////////////////////////////////////////////////////
-
-#pragma mark - Internal Methods
-
-+ (UINavigationController *) getNavigationControllerWithTitle:(NSString *)title {
++ (UINavigationController *) getNavigationControllerWithTitle:(NSString *)title data:(NSArray *)data urlString:(NSString *)urlString {
     
     // Setup the controllers
     UINavigationController *navigationController = [UINavigationController new];
     ZAGuideTableViewController *guideView = [ZAGuideTableViewController new];
     [navigationController setViewControllers:@[guideView]];
+    
+    // Load the data
+    [guideView loadData:data];
+    
+    // Load remote dats
     
     // Set the title
     [guideView setTitle:title];
@@ -255,24 +263,13 @@ static NSString *tableCellIdentifier = @"tableCellId";
     self = [super initWithStyle:UITableViewStyleGrouped];
     if (self) {
         [self setupNavigation];
-        
-//        _data = @[];
-        _data = @[
-        @{ZAGUIDE_TITLE_KEY:@"Title A",ZAGUIDE_ITEMS_KEY:@[
-        @{ZAGUIDE_TITLE_KEY:@"Link",ZAGUIDE_CONTENT_KEY:@"http://www.collusionapp.com/",ZAGUIDE_TYPE_KEY:ZAGUIDE_TYPE_LINK},
-        @{ZAGUIDE_TITLE_KEY:@"Images",ZAGUIDE_CONTENT_KEY:@[@"https://collusionapp.com/wp-content/uploads/2012/10/logo.png",@"https://collusionapp.com/wp-content/uploads/2012/10/logo.png",@"https://collusionapp.com/wp-content/uploads/2012/10/logo.png",@"https://collusionapp.com/wp-content/uploads/2012/10/logo.png"],ZAGUIDE_TYPE_KEY:ZAGUIDE_TYPE_IMAGES},
-        @{ZAGUIDE_TITLE_KEY:@"Html",ZAGUIDE_CONTENT_KEY:@"<html></body><h1>SUMO!</h1><p>Magical things</p></body></html>",ZAGUIDE_TYPE_KEY:ZAGUIDE_TYPE_HTML},
-        @{ZAGUIDE_TITLE_KEY:@"Html",ZAGUIDE_CONTENT_KEY:@"Content D",ZAGUIDE_TYPE_KEY:ZAGUIDE_TYPE_HTML}
-        ]
-        },
-        @{ZAGUIDE_TITLE_KEY:@"Title B",ZAGUIDE_ITEMS_KEY:@[
-        @{ZAGUIDE_TITLE_KEY:@"Link",ZAGUIDE_CONTENT_KEY:@"http://www.collusionapp.com/",ZAGUIDE_TYPE_KEY:ZAGUIDE_TYPE_LINK},
-        @{ZAGUIDE_TITLE_KEY:@"Images",ZAGUIDE_CONTENT_KEY:@"https://collusionapp.com/wp-content/uploads/2012/10/logo.png",ZAGUIDE_TYPE_KEY:ZAGUIDE_TYPE_IMAGES},
-        @{ZAGUIDE_TITLE_KEY:@"Html",ZAGUIDE_CONTENT_KEY:@"Content <strong>C</strong>",ZAGUIDE_TYPE_KEY:ZAGUIDE_TYPE_HTML}
-        ]
-        }];
     }
     return self;
+}
+
+- (void) loadData:(NSArray *)data {
+    _data = [data copy];
+    [self.tableView reloadData];
 }
 
 - (void) setupNavigation {

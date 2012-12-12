@@ -10,6 +10,7 @@
 
 @interface ViewController : UIViewController
 
-- (IBAction)showGuide:(id)sender;
+- (IBAction)showLocalGuide:(id)sender;
+- (IBAction)showRemoteGuide:(id)sender;
 
 @end

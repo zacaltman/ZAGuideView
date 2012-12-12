@@ -1,40 +1,55 @@
-_**If your project doesn't use ARC**: you must add the `-fobjc-arc` compiler flag to `ZAActivityBar.m` in Target Settings > Build Phases > Compile Sources._
+_**If your project doesn't use ARC**: you must add the `-fobjc-arc` compiler flag to `ZAGuideView.m` in Target Settings > Build Phases > Compile Sources._
 
-# ZAActivityBar
+# ZAGuideView
 
-ZAActivityBar is an easy-to-use activity bar that's meant to non-intrusively display the progress of a task.
+ZAGuideView is simple drop in guide for your iPad apps. You can include and organise a variety of data, including HTML, Video, Images, etc.
 
 ## Installation
 
-* Drag the `ZAProgressBar` folder into your project.
-* Add the **QuartzCore** framework to your project.
-
-## Video
-
-[Link to Video](https://www.dropbox.com/s/bwv8z9u595ehngi/ZAActivityBar.mov)
+* Drag the `ZAGuideView` folder into your project.
+* Drag the `External` folder into your project (if you don't already have them).
 
 ## How to Use
 
-_It's quite easy_
+You have two options for a data source:
+* Local Data
+* _Remote Data (Coming Soon)_
 
-Show loading indicator
+### Using Local Data:
+	
+	// Create the data array
+	NSArray *data = @[];
+	
+	// Show the data in the guide
+	[ZAGuideView showGuideWithData:data];
+	
+How should the data be formatted?
 
-    [ZAActivityBar showWithStatus:@"Loading..."];
-
-Show success or error messages (this will dismiss the indicator automatically)
-
-    [ZAActivityBar showSuccessWithStatus:@"Success!"];
-    [ZAActivityBar showErrorWithStatus:@"Success!"];
-
-Dismiss the indicator
-
-    [ZAActivityBar dismiss];
-    
-Notes:
-* ZAActivityBar is completely thread safe.
-* When using 'showWithStatus:' you will need to dismiss the bar either by calling 'dismiss' or showing an error or success message.
-* ZAActivityBar is screen independent. That is, if you switch screens via any means the bar will remain on screen.
+	// Item
+	NSDictionary *item = @{
+		ZAGUIDE_TITLE_KEY:@"Item Title",
+		ZAGUIDE_CONTENT_KEY:@[@"image url1",@"image url2"],
+		ZAGUIDE_TYPE_KEY:ZAGUIDE_TYPE_IMAGES
+		};
+		
+	// Group
+	NSDictonary *group = @{
+		ZAGUIDE_TITLE_KEY:@"Group Title",
+		ZAGUIDE_ITEMS_KEY:@[item1,item2,...]
+		};
+		
+	// Data
+	NSArray *data = @[
+		group1,
+		group2,
+		group3
+		];
+	
+### Using Remote Data:
+	
+	_Coming Soon_
+	
 
 ## Credits
 
-ZAActivityBar is brought to you by [Zac Altman](https://github.com/zacaltman). It was heavily influenced by [SVProgressHUD](https://raw.github.com/samvermette/SVProgressHUD) by [Sam Vermette](http://samvermette.com). The success and error icons are from [Pictos](http://pictos.cc/). If you have feature suggestions or bug reports, feel free to help out by sending pull requests or by [creating new issues](https://github.com/zacaltman/ZAActivityBar/issues/new). If you're using ZAActivityBar in your project, attribution would be nice.
+ZAGuideView is brought to you by [Zac Altman](https://github.com/zacaltman) from [Collusion](http://www.collusionapp.com/). If you have feature suggestions or bug reports, feel free to help out by sending pull requests or by [creating new issues](https://github.com/zacaltman/ZAGuideView/issues/new). If you're using ZAGuideView in your project, attribution would be nice.

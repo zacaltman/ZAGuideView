@@ -18,8 +18,8 @@
 		89CE01E616779887009EA481 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CE01E516779887009EA481 /* Default-568h@2x.png */; };
 		89CE01E916779887009EA481 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CE01E816779887009EA481 /* ViewController.m */; };
 		89CE01EC16779887009EA481 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89CE01EA16779887009EA481 /* ViewController.xib */; };
-		89CE020F1678A4D6009EA481 /* ZAGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CE020E1678A4D6009EA481 /* ZAGuideView.m */; };
 		89CE02131678A5D4009EA481 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CE02121678A5D4009EA481 /* AsyncImageView.m */; };
+		89CE02171678BD93009EA481 /* ZAGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CE02161678BD93009EA481 /* ZAGuideView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,10 +39,10 @@
 		89CE01E716779887009EA481 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		89CE01E816779887009EA481 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		89CE01EB16779887009EA481 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
-		89CE020D1678A4D6009EA481 /* ZAGuideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZAGuideView.h; path = ../../ZAGuideView.h; sourceTree = "<group>"; };
-		89CE020E1678A4D6009EA481 /* ZAGuideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZAGuideView.m; path = ../../ZAGuideView.m; sourceTree = "<group>"; };
 		89CE02111678A5D4009EA481 /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
 		89CE02121678A5D4009EA481 /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
+		89CE02151678BD93009EA481 /* ZAGuideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZAGuideView.h; sourceTree = "<group>"; };
+		89CE02161678BD93009EA481 /* ZAGuideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZAGuideView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,8 +89,8 @@
 		89CE01D516779887009EA481 /* ZAGuideView */ = {
 			isa = PBXGroup;
 			children = (
+				89CE02141678BD93009EA481 /* ZAGuideView */,
 				89CE02101678A5D4009EA481 /* AsyncImageView */,
-				89CE020C1678A4CD009EA481 /* ZAGuideView */,
 				89CE01DE16779887009EA481 /* AppDelegate.h */,
 				89CE01DF16779887009EA481 /* AppDelegate.m */,
 				89CE01E716779887009EA481 /* ViewController.h */,
@@ -115,15 +115,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		89CE020C1678A4CD009EA481 /* ZAGuideView */ = {
-			isa = PBXGroup;
-			children = (
-				89CE020D1678A4D6009EA481 /* ZAGuideView.h */,
-				89CE020E1678A4D6009EA481 /* ZAGuideView.m */,
-			);
-			name = ZAGuideView;
-			sourceTree = "<group>";
-		};
 		89CE02101678A5D4009EA481 /* AsyncImageView */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +123,16 @@
 			);
 			name = AsyncImageView;
 			path = ../../External/AsyncImageView/AsyncImageView;
+			sourceTree = "<group>";
+		};
+		89CE02141678BD93009EA481 /* ZAGuideView */ = {
+			isa = PBXGroup;
+			children = (
+				89CE02151678BD93009EA481 /* ZAGuideView.h */,
+				89CE02161678BD93009EA481 /* ZAGuideView.m */,
+			);
+			name = ZAGuideView;
+			path = ../../ZAGuideView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,8 +204,8 @@
 				89CE01DC16779887009EA481 /* main.m in Sources */,
 				89CE01E016779887009EA481 /* AppDelegate.m in Sources */,
 				89CE01E916779887009EA481 /* ViewController.m in Sources */,
-				89CE020F1678A4D6009EA481 /* ZAGuideView.m in Sources */,
 				89CE02131678A5D4009EA481 /* AsyncImageView.m in Sources */,
+				89CE02171678BD93009EA481 /* ZAGuideView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

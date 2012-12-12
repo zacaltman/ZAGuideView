@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+// Settings
+#define ZAGUIDE_DARK_THEME YES
+
 //----------------------------//
 //---- External Interface ----//
 //----------------------------//

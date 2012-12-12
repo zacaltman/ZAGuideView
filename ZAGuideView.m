@@ -180,6 +180,13 @@ static BOOL contentLoaded = NO;
     // Setup page control
     _pageControl = [[UIPageControl alloc] initWithFrame:controlRect];
     [_pageControl setAutoresizingMask:UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleWidth];
+    [_pageControl setHidesForSinglePage:YES];
+    
+    if (ZAGUIDE_DARK_THEME) {
+        [_pageControl setCurrentPageIndicatorTintColor:[UIColor darkGrayColor]];
+        [_pageControl setPageIndicatorTintColor:[UIColor lightGrayColor]];
+    }
+    
     [self.view addSubview:_pageControl];
 
 }
@@ -249,11 +256,12 @@ static NSString *tableCellIdentifier = @"tableCellId";
     if (self) {
         [self setupNavigation];
         
+//        _data = @[];
         _data = @[
         @{ZAGUIDE_TITLE_KEY:@"Title A",ZAGUIDE_ITEMS_KEY:@[
         @{ZAGUIDE_TITLE_KEY:@"Link",ZAGUIDE_CONTENT_KEY:@"http://www.collusionapp.com/",ZAGUIDE_TYPE_KEY:ZAGUIDE_TYPE_LINK},
         @{ZAGUIDE_TITLE_KEY:@"Images",ZAGUIDE_CONTENT_KEY:@[@"https://collusionapp.com/wp-content/uploads/2012/10/logo.png",@"https://collusionapp.com/wp-content/uploads/2012/10/logo.png",@"https://collusionapp.com/wp-content/uploads/2012/10/logo.png",@"https://collusionapp.com/wp-content/uploads/2012/10/logo.png"],ZAGUIDE_TYPE_KEY:ZAGUIDE_TYPE_IMAGES},
-        @{ZAGUIDE_TITLE_KEY:@"Html",ZAGUIDE_CONTENT_KEY:@"Content <strong>C</strong>",ZAGUIDE_TYPE_KEY:ZAGUIDE_TYPE_HTML},
+        @{ZAGUIDE_TITLE_KEY:@"Html",ZAGUIDE_CONTENT_KEY:@"<html></body><h1>SUMO!</h1><p>Magical things</p></body></html>",ZAGUIDE_TYPE_KEY:ZAGUIDE_TYPE_HTML},
         @{ZAGUIDE_TITLE_KEY:@"Html",ZAGUIDE_CONTENT_KEY:@"Content D",ZAGUIDE_TYPE_KEY:ZAGUIDE_TYPE_HTML}
         ]
         },

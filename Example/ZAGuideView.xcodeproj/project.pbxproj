@@ -1,0 +1,316 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		89CE01D016779887009EA481 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89CE01CF16779887009EA481 /* UIKit.framework */; };
+		89CE01D216779887009EA481 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89CE01D116779887009EA481 /* Foundation.framework */; };
+		89CE01D416779887009EA481 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89CE01D316779887009EA481 /* CoreGraphics.framework */; };
+		89CE01DA16779887009EA481 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 89CE01D816779887009EA481 /* InfoPlist.strings */; };
+		89CE01DC16779887009EA481 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CE01DB16779887009EA481 /* main.m */; };
+		89CE01E016779887009EA481 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CE01DF16779887009EA481 /* AppDelegate.m */; };
+		89CE01E216779887009EA481 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CE01E116779887009EA481 /* Default.png */; };
+		89CE01E416779887009EA481 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CE01E316779887009EA481 /* Default@2x.png */; };
+		89CE01E616779887009EA481 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CE01E516779887009EA481 /* Default-568h@2x.png */; };
+		89CE01E916779887009EA481 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CE01E816779887009EA481 /* ViewController.m */; };
+		89CE01EC16779887009EA481 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89CE01EA16779887009EA481 /* ViewController.xib */; };
+		89CE020F1678A4D6009EA481 /* ZAGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CE020E1678A4D6009EA481 /* ZAGuideView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		89CE01CB16779887009EA481 /* ZAGuideView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZAGuideView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		89CE01CF16779887009EA481 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		89CE01D116779887009EA481 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		89CE01D316779887009EA481 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		89CE01D716779887009EA481 /* ZAGuideView-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ZAGuideView-Info.plist"; sourceTree = "<group>"; };
+		89CE01D916779887009EA481 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		89CE01DB16779887009EA481 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		89CE01DD16779887009EA481 /* ZAGuideView-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZAGuideView-Prefix.pch"; sourceTree = "<group>"; };
+		89CE01DE16779887009EA481 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		89CE01DF16779887009EA481 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		89CE01E116779887009EA481 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		89CE01E316779887009EA481 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		89CE01E516779887009EA481 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		89CE01E716779887009EA481 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		89CE01E816779887009EA481 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		89CE01EB16779887009EA481 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		89CE020D1678A4D6009EA481 /* ZAGuideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZAGuideView.h; path = ../../ZAGuideView.h; sourceTree = "<group>"; };
+		89CE020E1678A4D6009EA481 /* ZAGuideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZAGuideView.m; path = ../../ZAGuideView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		89CE01C816779887009EA481 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89CE01D016779887009EA481 /* UIKit.framework in Frameworks */,
+				89CE01D216779887009EA481 /* Foundation.framework in Frameworks */,
+				89CE01D416779887009EA481 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		89CE01C016779887009EA481 = {
+			isa = PBXGroup;
+			children = (
+				89CE01D516779887009EA481 /* ZAGuideView */,
+				89CE01CE16779887009EA481 /* Frameworks */,
+				89CE01CC16779887009EA481 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		89CE01CC16779887009EA481 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				89CE01CB16779887009EA481 /* ZAGuideView.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		89CE01CE16779887009EA481 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				89CE01CF16779887009EA481 /* UIKit.framework */,
+				89CE01D116779887009EA481 /* Foundation.framework */,
+				89CE01D316779887009EA481 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		89CE01D516779887009EA481 /* ZAGuideView */ = {
+			isa = PBXGroup;
+			children = (
+				89CE020C1678A4CD009EA481 /* ZAGuideView */,
+				89CE01DE16779887009EA481 /* AppDelegate.h */,
+				89CE01DF16779887009EA481 /* AppDelegate.m */,
+				89CE01E716779887009EA481 /* ViewController.h */,
+				89CE01E816779887009EA481 /* ViewController.m */,
+				89CE01EA16779887009EA481 /* ViewController.xib */,
+				89CE01D616779887009EA481 /* Supporting Files */,
+			);
+			path = ZAGuideView;
+			sourceTree = "<group>";
+		};
+		89CE01D616779887009EA481 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				89CE01D716779887009EA481 /* ZAGuideView-Info.plist */,
+				89CE01D816779887009EA481 /* InfoPlist.strings */,
+				89CE01DB16779887009EA481 /* main.m */,
+				89CE01DD16779887009EA481 /* ZAGuideView-Prefix.pch */,
+				89CE01E116779887009EA481 /* Default.png */,
+				89CE01E316779887009EA481 /* Default@2x.png */,
+				89CE01E516779887009EA481 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		89CE020C1678A4CD009EA481 /* ZAGuideView */ = {
+			isa = PBXGroup;
+			children = (
+				89CE020D1678A4D6009EA481 /* ZAGuideView.h */,
+				89CE020E1678A4D6009EA481 /* ZAGuideView.m */,
+			);
+			name = ZAGuideView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		89CE01CA16779887009EA481 /* ZAGuideView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 89CE01EF16779887009EA481 /* Build configuration list for PBXNativeTarget "ZAGuideView" */;
+			buildPhases = (
+				89CE01C716779887009EA481 /* Sources */,
+				89CE01C816779887009EA481 /* Frameworks */,
+				89CE01C916779887009EA481 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ZAGuideView;
+			productName = ZAGuideView;
+			productReference = 89CE01CB16779887009EA481 /* ZAGuideView.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		89CE01C216779887009EA481 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Zac Altman";
+			};
+			buildConfigurationList = 89CE01C516779887009EA481 /* Build configuration list for PBXProject "ZAGuideView" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 89CE01C016779887009EA481;
+			productRefGroup = 89CE01CC16779887009EA481 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				89CE01CA16779887009EA481 /* ZAGuideView */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		89CE01C916779887009EA481 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89CE01DA16779887009EA481 /* InfoPlist.strings in Resources */,
+				89CE01E216779887009EA481 /* Default.png in Resources */,
+				89CE01E416779887009EA481 /* Default@2x.png in Resources */,
+				89CE01E616779887009EA481 /* Default-568h@2x.png in Resources */,
+				89CE01EC16779887009EA481 /* ViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		89CE01C716779887009EA481 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89CE01DC16779887009EA481 /* main.m in Sources */,
+				89CE01E016779887009EA481 /* AppDelegate.m in Sources */,
+				89CE01E916779887009EA481 /* ViewController.m in Sources */,
+				89CE020F1678A4D6009EA481 /* ZAGuideView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		89CE01D816779887009EA481 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				89CE01D916779887009EA481 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		89CE01EA16779887009EA481 /* ViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				89CE01EB16779887009EA481 /* en */,
+			);
+			name = ViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		89CE01ED16779887009EA481 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		89CE01EE16779887009EA481 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		89CE01F016779887009EA481 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ZAGuideView/ZAGuideView-Prefix.pch";
+				INFOPLIST_FILE = "ZAGuideView/ZAGuideView-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		89CE01F116779887009EA481 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ZAGuideView/ZAGuideView-Prefix.pch";
+				INFOPLIST_FILE = "ZAGuideView/ZAGuideView-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		89CE01C516779887009EA481 /* Build configuration list for PBXProject "ZAGuideView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89CE01ED16779887009EA481 /* Debug */,
+				89CE01EE16779887009EA481 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		89CE01EF16779887009EA481 /* Build configuration list for PBXNativeTarget "ZAGuideView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89CE01F016779887009EA481 /* Debug */,
+				89CE01F116779887009EA481 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 89CE01C216779887009EA481 /* Project object */;
+}

@@ -12,25 +12,53 @@
 @implementation ViewController
 
 - (IBAction)showLocalGuide:(id)sender {
-    NSArray *data = @[
-    @{ZAGUIDE_TITLE_KEY:@"Title A",ZAGUIDE_ITEMS_KEY:@[
-    @{ZAGUIDE_TITLE_KEY:@"Link",ZAGUIDE_CONTENT_KEY:@"http://www.collusionapp.com/",ZAGUIDE_TYPE_KEY:ZAGUIDE_TYPE_LINK},
-    @{ZAGUIDE_TITLE_KEY:@"Images",ZAGUIDE_CONTENT_KEY:@[@"https://collusionapp.com/wp-content/uploads/2012/10/logo.png",@"https://collusionapp.com/wp-content/uploads/2012/10/logo.png",@"https://collusionapp.com/wp-content/uploads/2012/10/logo.png",@"https://collusionapp.com/wp-content/uploads/2012/10/logo.png"],ZAGUIDE_TYPE_KEY:ZAGUIDE_TYPE_IMAGES},
-    @{ZAGUIDE_TITLE_KEY:@"Html",ZAGUIDE_CONTENT_KEY:@"<html></body><h1>SUMO!</h1><p>Magical things</p></body></html>",ZAGUIDE_TYPE_KEY:ZAGUIDE_TYPE_HTML},
-    @{ZAGUIDE_TITLE_KEY:@"Html",ZAGUIDE_CONTENT_KEY:@"Content D",ZAGUIDE_TYPE_KEY:ZAGUIDE_TYPE_HTML}
-    ]
-    },
-    @{ZAGUIDE_TITLE_KEY:@"Title B",ZAGUIDE_ITEMS_KEY:@[
-    @{ZAGUIDE_TITLE_KEY:@"Link",ZAGUIDE_CONTENT_KEY:@"http://www.collusionapp.com/",ZAGUIDE_TYPE_KEY:ZAGUIDE_TYPE_LINK},
-    @{ZAGUIDE_TITLE_KEY:@"Images",ZAGUIDE_CONTENT_KEY:@"https://collusionapp.com/wp-content/uploads/2012/10/logo.png",ZAGUIDE_TYPE_KEY:ZAGUIDE_TYPE_IMAGES},
-    @{ZAGUIDE_TITLE_KEY:@"Html",ZAGUIDE_CONTENT_KEY:@"Content <strong>C</strong>",ZAGUIDE_TYPE_KEY:ZAGUIDE_TYPE_HTML}
-    ]
-    }];
+    // This is an example of the data
+    
+    // Example link item
+    NSDictionary *linkItem = @{
+        ZAGUIDE_TITLE_KEY:@"Link Content",
+        ZAGUIDE_TYPE_KEY:ZAGUIDE_TYPE_LINK,
+        ZAGUIDE_CONTENT_KEY:@"http://www.collusionapp.com/"
+    };
+    
+    // Example HTML / Text item
+    NSDictionary *htmlItem = @{
+        ZAGUIDE_TITLE_KEY:@"Html Content",
+        ZAGUIDE_TYPE_KEY:ZAGUIDE_TYPE_HTML,
+        ZAGUIDE_CONTENT_KEY:@"Can just be text"
+    };
+    
+    // Example image item
+    NSString *imageUrl = @"https://collusionapp.com/wp-content/uploads/2012/10/logo.png";
+    NSDictionary *imagesItem = @{
+        ZAGUIDE_TITLE_KEY:@"A few images",
+        ZAGUIDE_TYPE_KEY:ZAGUIDE_TYPE_IMAGES,
+        ZAGUIDE_CONTENT_KEY:@[imageUrl,imageUrl,imageUrl]
+    };
+    
+    // Now we add the items to the group
+    NSDictionary *group = @{
+        ZAGUIDE_TITLE_KEY:@"Random Title",
+        ZAGUIDE_ITEMS_KEY:@[linkItem,htmlItem,imagesItem]
+    };
+    
+    // Another group just for fun
+    NSDictionary *anotherGroup = @{
+        ZAGUIDE_TITLE_KEY:@"What? Another group?",
+        ZAGUIDE_ITEMS_KEY:@[imagesItem,linkItem,htmlItem]
+    };
+    
+    // Now we create the data source (just an array of groups)
+    NSArray *data = @[group,anotherGroup];
+    
+    // And... show!
     [ZAGuideView showGuideWithData:data];
 }
 
 - (IBAction)showRemoteGuide:(id)sender {
-    [ZAGuideView showGuideWithURLString:@"http://appguide.collusionapp.com/apguide.json"];
+    
+    // We're using Collusion as the example here.
+    [ZAGuideView showGuideWithURLString:@"http://appguide.collusionapp.com/"];
 }
 
 @end

@@ -8,12 +8,17 @@
 
 #import "ZAGuideView.h"
 #import "AsyncImageView.h"
+#import "AFNetworking.h"
 
 static BOOL contentLoaded = NO;
 
-@interface ZAGuideTableViewController : UITableViewController
-@property (nonatomic,strong) NSArray *data;
+@interface ZAGuideTableViewController : UITableViewController {
+    UILabel *_errorLabel;
+    UIActivityIndicatorView *_loadingIndicator;
+}
+@property (nonatomic,strong) __block NSArray *data;
 - (void) loadData:(NSArray *)data;
+- (void) loadRemoteData:(NSString *)urlString;
 @end
 
 @interface ZAWebViewController : UIViewController {
@@ -81,10 +86,13 @@ static BOOL contentLoaded = NO;
     [navigationController setViewControllers:@[guideView]];
     
     // Load the data
-    [guideView loadData:data];
+    if (data)
+        [guideView loadData:data];
     
-    // Load remote dats
-    
+    // Load remote data
+    if (urlString)
+        [guideView loadRemoteData:urlString];
+        
     // Set the title
     [guideView setTitle:title];
     
@@ -270,6 +278,54 @@ static NSString *tableCellIdentifier = @"tableCellId";
 - (void) loadData:(NSArray *)data {
     _data = [data copy];
     [self.tableView reloadData];
+}
+
+- (void) loadRemoteData:(NSString *)urlString {
+    
+    if (_errorLabel) {
+        [_errorLabel removeFromSuperview];
+        _errorLabel = nil;
+    }
+    
+    _loadingIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    float indicatorSize = 20.0f;
+    CGRect loadingFrame = CGRectZero;
+    loadingFrame.size = CGSizeMake(indicatorSize, indicatorSize);
+    loadingFrame.origin.x = (self.view.frame.size.width - indicatorSize) / 2;
+    loadingFrame.origin.y = (self.view.frame.size.height - (indicatorSize * 8)) / 2; // It's always nicer if it sits higher.
+    [_loadingIndicator setFrame:loadingFrame];
+    [_loadingIndicator setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleBottomMargin];
+    [self.view addSubview:_loadingIndicator];
+    [_loadingIndicator startAnimating];
+    
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    AFJSONRequestOperation *operation =
+    [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        
+        NSArray *jsonData = (NSArray *)JSON;
+        _data = [jsonData copy];
+        jsonData = nil;
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [_loadingIndicator removeFromSuperview];
+            [self.tableView reloadData];
+        });
+        
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [_loadingIndicator removeFromSuperview];
+            
+            CGRect errorFrame = self.view.frame;
+            _errorLabel = [[UILabel alloc] initWithFrame:errorFrame];
+            [_errorLabel setFont:[UIFont boldSystemFontOfSize:16.0f]];
+            [_errorLabel setTextAlignment:NSTextAlignmentCenter];
+            [_errorLabel setBackgroundColor:[UIColor clearColor]];
+            [_errorLabel setText:@"Error loading content."];
+            [self.view addSubview:_errorLabel];
+        });
+    }];
+    [operation start];
 }
 
 - (void) setupNavigation {

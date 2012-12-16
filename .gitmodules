@@ -1,3 +1,6 @@
 [submodule "External/AsyncImageView"]
 	path = External/AsyncImageView
 	url = https://github.com/nicklockwood/AsyncImageView.git
+[submodule "External/AFNetworking"]
+	path = External/AFNetworking
+	url = https://github.com/AFNetworking/AFNetworking.git

@@ -30,11 +30,7 @@
 }
 
 - (IBAction)showRemoteGuide:(id)sender {
-    [[[UIAlertView alloc] initWithTitle:@"Coming Soon"
-                                message:@"Remote loading of guides is coming in the near future."
-                               delegate:nil
-                      cancelButtonTitle:@"Okay"
-                      otherButtonTitles:nil] show];
+    [ZAGuideView showGuideWithURLString:@"http://appguide.collusionapp.com/apguide.json"];
 }
 
 @end
